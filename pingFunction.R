@@ -1,7 +1,14 @@
 ping <- function(x, stderr = FALSE, stdout = FALSE,...){
-  pingvec <- system2(command = "ping", args = x,
-                     stdout = FALSE,
-                     stderr = FALSE,...)
+  config <- config::get()
+  Environment <- config$Environment
+  if(Environment == "Local_Machine") {
+    pingvec <- system2(command = "ping", args = x,
+                       stdout = FALSE,
+                       stderr = FALSE,...)
+  } else if(Environment == "Server") {
+    pingvec <- system2(command = "ping", args = x,stderr = FALSE)
+  }
+  
   y <- switch(x,
               "www.google.com" = "Google home",
               "172.104.147.136:8087" = "NERICC Instance",
@@ -16,3 +23,5 @@ ping <- function(x, stderr = FALSE, stdout = FALSE,...){
   } else {
     paste0(y, " which is accessible at " ,x , " is down")}
 }
+
+# system("ping www.google.com", intern = TRUE)

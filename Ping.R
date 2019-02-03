@@ -1,4 +1,3 @@
-# getwd()
 source("pingFunction.R")
 config <- config::get()
 Environment <- config$Environment
