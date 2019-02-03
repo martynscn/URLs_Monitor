@@ -20,7 +20,7 @@ ping <- function(x, stderr = FALSE, stdout = FALSE,...){
       paste0(y, " which is accessible at " ,x , " is down")}
   } else if(Environment == "Server") {
     # pingvec <- system2(command = "ping", args = x,stderr = FALSE)
-    pingvec <- system2("fping","www.google.com", stdout = TRUE)
+    pingvec <- system2("fping",x, stdout = TRUE)
     pingvec
   }
 }
