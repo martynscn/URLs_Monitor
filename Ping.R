@@ -1,27 +1,28 @@
-# source("pingFunction.R")
-library(httping)
-ping2 <- function(x) {
-    pingvec <- httping::ping(url = "http://aphen.africa")
-    
-y <- switch(x,
-            "https://google.com" = "Google home",
-            "http://172.104.147.136:8087" = "NERICC Instance",
-            "http://dhis2nigeria.org" = "NATIONAL DHIS2 Instance",
-            "http://ehealth4everyone.com" = "Ehealth4everyone website",
-            "http://healththink.org" = "HealthThink website",
-            "http://datakojo.com" = "Data kojo server",
-            "http://test.datakojo.com" = "Data kojo test server",
-            "http://aphen.africa" = "Aphen Forum")
-if(pingvec$status == 200) {
-  paste0(y, " which is accessible at " ,x ," is up with status code of ", pingvec$status)
-} else {
-  paste0(y, " which is accessible at " ,x , " is down with status code of ", pingvec$status)}
-# other code ----
-# if(pingvec == 0) {
-#   paste0(y, " which is accessible at " ,x ," is up")
+source("pingFunction.R")
+# trial ----
+# ping2 <- function(x) {
+#     pingvec <- httping::ping(url = "http://aphen.africa")
+#     
+# y <- switch(x,
+#             "https://google.com" = "Google home",
+#             "http://172.104.147.136:8087" = "NERICC Instance",
+#             "http://dhis2nigeria.org" = "NATIONAL DHIS2 Instance",
+#             "http://ehealth4everyone.com" = "Ehealth4everyone website",
+#             "http://healththink.org" = "HealthThink website",
+#             "http://datakojo.com" = "Data kojo server",
+#             "http://test.datakojo.com" = "Data kojo test server",
+#             "http://aphen.africa" = "Aphen Forum")
+# if(pingvec$status == 200) {
+#   paste0(y, " which is accessible at " ,x ," is up with status code of ", pingvec$status)
 # } else {
-#   paste0(y, " which is accessible at " ,x , " is down")}
-}
+#   paste0(y, " which is accessible at " ,x , " is down with status code of ", pingvec$status)}
+# # other code ----
+# # if(pingvec == 0) {
+# #   paste0(y, " which is accessible at " ,x ," is up")
+# # } else {
+# #   paste0(y, " which is accessible at " ,x , " is down")}
+# }
+# real code ----
 config <- config::get()
 Environment <- config$Environment
 # Configure slack ----
