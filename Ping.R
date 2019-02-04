@@ -31,9 +31,17 @@ incoming_webhook_url <- config$slackIncomingWebHookUrl
 api_token <- config$slackAPIToken
 slackrSetup(channel = "r_notifications1", username = "martynscn",incoming_webhook_url = incoming_webhook_url,api_token = api_token)
 
-ips <- c("http://172.104.147.136:8087","http://dhis2nigeria.org",
-         "http://ehealth4everyone.com","http://healththink.org",
-         "http://datakojo.com","http://test.datakojo.com","http://aphen.africa")
+# ips <- c("http://172.104.147.136:8087","http://dhis2nigeria.org",
+#          "http://ehealth4everyone.com","http://healththink.org",
+#          "http://datakojo.com","http://test.datakojo.com","http://aphen.africa")
+
+ips <- c("172.104.147.136:8087",
+         "www.dhis2nigeria.org",
+         "www.ehealth4everyone.com",
+         "www.healththink.org",
+         "www.datakojo.com",
+         "www.test.datakojo.com",
+         "www.aphen.africa")
 
 ips_len <- length(ips)
 fac <- factor(rep_len(1:ips_len,length.out = ips_len),labels = 1:ips_len)
