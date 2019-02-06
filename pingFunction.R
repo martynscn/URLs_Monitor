@@ -25,4 +25,3 @@ ping <- function(x, stderr = FALSE, stdout = FALSE,...){
   }
 }
 
-# system("ping www.google.com", intern = TRUE)
