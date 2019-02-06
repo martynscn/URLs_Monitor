@@ -13,7 +13,7 @@ ping <- function(x, stderr = FALSE, stdout = FALSE,...){
                 "www.healththink.org" = "HealthThink website",
                 "www.datakojo.com" = "Data kojo server",
                 "www.test.datakojo.com" = "Data kojo test server",
-                "aphen.africa" = "Aphen Forum")
+                "www.aphen.africa" = "Aphen Forum")
     if(pingvec == 0) {
       paste0(y, " which is accessible at " ,x ," is up")
     } else {
